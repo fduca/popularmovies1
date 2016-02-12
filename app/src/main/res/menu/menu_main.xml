@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Settings, should always be in the overflow -->
+    <item android:id="@+id/action_settings"
+          android:title="@string/action_settings"
+          android:icon="@drawable/ic_more_vert_white_24dp"
+          app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/sort_popular"
+                  android:title="Most popular"/>
+            <item android:id="@+id/sort_rating"
+                  android:title="Highest rated"/>
+        </menu>
+    </item>
+</menu>
