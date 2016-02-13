@@ -26,14 +26,13 @@ import butterknife.ButterKnife;
 public class MainFragment extends Fragment implements OnTaskCompleted, OnSortCallback, AdapterView.OnItemClickListener {
 
     private MovieArrayAdapter mMovieArrayAdapter;
-    @Bind(R.id.gridview) GridView mGridView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         mMovieArrayAdapter = new MovieArrayAdapter(getActivity(), R.layout.item_movie);
-        ButterKnife.bind(this.getActivity());
+        GridView mGridView = (GridView) rootView.findViewById(R.id.gridview);
         mGridView.setAdapter(mMovieArrayAdapter);
         mGridView.setOnItemClickListener(this);
         MovieDBTask movieDBTask = new MovieDBTask(this);

@@ -13,22 +13,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity {
 
     OnSortCallback mOnSortCallback;
-    @Bind(R.id.toolbar) Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         FragmentManager fragmentManager = getFragmentManager();
         mOnSortCallback = (MainFragment) fragmentManager.findFragmentById(R.id.main_fragment);
-        setSupportActionBar(mToolbar);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
     }
 
     @Override
