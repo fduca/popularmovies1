@@ -1,15 +1,21 @@
 package com.cudaf.myappportfolio.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Movie implements Parcelable {
 
     private Long id;
+    @SerializedName("original_title")
     private String originalTitle;
     private String overview;
-    private Long voteAverage;
+    @SerializedName("vote_average")
+    private Double voteAverage;
+    @SerializedName("release_date")
     private String releaseDate;
+    @SerializedName("poster_path")
     private String posterPath;
 
     public Movie(){
@@ -19,7 +25,7 @@ public class Movie implements Parcelable {
         this.id = in.readLong();
         this.originalTitle = in.readString();
         this.overview = in.readString();
-        this.voteAverage = in.readLong();
+        this.voteAverage = in.readDouble();
         this.releaseDate = in.readString();
         this.posterPath = in.readString();
     }
@@ -48,11 +54,11 @@ public class Movie implements Parcelable {
         this.overview = overview;
     }
 
-    public Long getVoteAverage() {
+    public Double getVoteAverage() {
         return voteAverage;
     }
 
-    public void setVoteAverage(Long voteAverage) {
+    public void setVoteAverage(Double voteAverage) {
         this.voteAverage = voteAverage;
     }
 
@@ -87,7 +93,7 @@ public class Movie implements Parcelable {
         dest.writeLong(id);
         dest.writeString(originalTitle);
         dest.writeString(overview);
-        dest.writeLong(voteAverage);
+        dest.writeDouble(voteAverage);
         dest.writeString(releaseDate);
         dest.writeString(posterPath);
     }
